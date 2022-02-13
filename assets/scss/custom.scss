@@ -1,0 +1,86 @@
+body, #__next, #__next>div, #__next .view-root { min-height: 100vh; }
+.view-root footer { margin-top: auto; }
+
+.fixed-side-bar {
+  position: fixed;
+  left: 0;
+  top: 74px;
+  width: 280px;
+  height: calc(100vh - 74px);
+  @media (min-width: 992px) {
+    +main,
+    ~footer {
+      margin-left: 280px
+    }
+  }
+}
+
+.employee-status-field {
+  .list-group-item {
+    min-width: 130px;
+    padding: 0;
+    &:not(:last-child) {
+      &::after {
+        content: '';
+        display: inline-block;
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        height: 0;
+        width: 0;
+        border: 24px solid transparent;
+        border-right-width: 0;
+        border-left-width: 24px;
+        z-index: 1;
+        border-left-color: #fff;
+        margin: 0;
+        transform: translateY(-4px);
+        z-index: 3;
+      }
+      >span {
+        width: 100%;
+        text-align: center;
+        height: 100%;
+        position: relative;
+        padding: 0.5rem 1rem;
+        // border-left-color: inherit;
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 100%;
+          content: '';
+          height: 0;
+          width: 0;
+          border: 20px solid transparent;
+          border-right-width: 0;
+          border-left-width: 20px;
+          z-index: 5;
+          border-left-color: inherit;
+          transform: translateX(0px)
+        }
+      }
+      &.list-group-item-success>span {
+        border-left-color: #d4f0d5;
+      }
+      &.list-group-item-success:focus>span,
+      &.list-group-item-success:hover>span,
+      &.list-group-item-success:active>span {
+        border-left-color: #bfd8c0;
+      }
+      &.list-group-item-secondary>span {
+        border-left-color: #cddbda;
+      }
+      &.list-group-item-secondary:focus>span,
+      &.list-group-item-secondary:hover>span,
+      &.list-group-item-secondary:active>span {
+        border-left-color: #b9c5c4;
+      }
+    }
+
+    &:not(:first-child)>span {
+      padding: 0.5rem 1rem 0.5rem 2rem;
+    }
+  }
+}
